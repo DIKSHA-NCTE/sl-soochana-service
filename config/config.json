@@ -1,11 +1,11 @@
 ﻿{
     "HOST": "http://localhost",
-    "PORT": "8082",
+    "PORT": "5801",
     "email_config":{
-        "smtp_host":"smtp://smtp-relay.gmail.com",
-        "smtp_port":587,
-        "from_email_id":"soochana@shikshalokam.org"
+        "host":"smtp://smtp-relay.gmail.com",
+        "port":587,
+        "secure": false
     },
+    "from_email_id":"soochana@shikshalokam.org",
     "token":"token@733"
-    
 }

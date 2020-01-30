@@ -32,16 +32,12 @@ async function sendEmail(req) {
             if (req.headers['x-auth-token'] && req.headers['x-auth-token'] == config.token) {
 
                 let testAccount = await nodemailer.createTestAccount();
-                let transporter = nodemailer.createTransport({
-                    host: config.email_config.smtp_host,
-                    port: config.email_config.smtp_port,
-                    secure: false, // true for 465, false for other ports
-                });
+                let transporter = nodemailer.createTransport(config.email_config);
 
                 req.body.emails.forEach(function (ele) {
                     // send mail with defined transport object
                     let info = transporter.sendMail({
-                        from: '<' + config.email_config.from_email_id + '>', // sender address
+                        from: '<' + config.from_email_id + '>', // sender address
                         to: ele, // list of receivers
                         subject: req.body.subject, // Subject line
                         text: req.body.message // plain text body
